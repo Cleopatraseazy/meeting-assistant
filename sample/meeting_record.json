@@ -1,0 +1,78 @@
+{
+  "summary": "The team confirmed that services have been moved to Kubernetes and the PostgreSQL migration is complete. They plan to write Terraform scripts by the 14th and need someone to look at gRPC timeouts. Load testing showed stability up to 40,000 requests per hour but not above 50,000, prompting a discussion about switching to Redis for caching. The release date was agreed to be the 20th, and documentation still needs to be updated.",
+  "minutes": [
+    {
+      "topic": "Backend updates",
+      "points": [
+        "Moved services to Kubernetes last month",
+        "PostgreSQL migration finished"
+      ]
+    },
+    {
+      "topic": "Terraform scripts",
+      "points": [
+        "Write Terraform scripts by the 14th"
+      ]
+    },
+    {
+      "topic": "gRPC timeouts",
+      "points": [
+        "Look at the gRPC timeouts"
+      ]
+    },
+    {
+      "topic": "Load testing",
+      "points": [
+        "Handled about 40,000 requests per hour; not stable above 50,000"
+      ]
+    },
+    {
+      "topic": "Caching",
+      "points": [
+        "Consider switching to Redis for caching"
+      ]
+    },
+    {
+      "topic": "Release schedule",
+      "points": [
+        "Release agreed to go out on the 20th, not earlier"
+      ]
+    },
+    {
+      "topic": "Documentation",
+      "points": [
+        "Someone needs to update the documentation"
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "decision": "Release will go out on the 20th, not earlier",
+      "evidence": "we agree that the release goes out on 20th, not earlier",
+      "evidence_found": true
+    }
+  ],
+  "action_items": [
+    {
+      "task": "Write Terraform scripts",
+      "owner": null,
+      "deadline": "14th",
+      "evidence": "Aro, we will write the Terraform scripts I think by 14th",
+      "evidence_found": true
+    },
+    {
+      "task": "Look at the gRPC timeouts",
+      "owner": null,
+      "deadline": null,
+      "evidence": "Mira will probably look at the gRPC timeouts myself so don't worry about that one",
+      "evidence_found": true
+    },
+    {
+      "task": "Update the documentation",
+      "owner": null,
+      "deadline": null,
+      "evidence": "Someone has to update the documentation but I don't know who",
+      "evidence_found": true
+    }
+  ]
+}
