@@ -2,6 +2,8 @@
 
 Turns a meeting recording into a raw transcript, a refined transcript, minutes, decisions and action items.
 
+
+
 ## Models and roles
 
 |Stage|Model|Role|
@@ -11,6 +13,8 @@ Turns a meeting recording into a raw transcript, a refined transcript, minutes, 
 |3|LLM #2 (`WRITER\_MODEL`)|Summary, minutes, decisions, action items (JSON)|
 
 Data flow: audio -> raw transcript -> refined transcript -> structured record (Markdown + JSON).
+
+
 
 ## Setup
 
@@ -28,6 +32,8 @@ $env:WRITER\_MODEL="openai/gpt-oss-120b"
 
 Optional: `STT\_MODEL` (default `whisper-large-v3-turbo`), `MAX\_MB` (default 25).
 
+
+
 ## Run
 
 ```
@@ -37,9 +43,13 @@ python -m streamlit run app.py
 Open http://localhost:8501, upload audio, click **Start processing**, then inspect and download the outputs.
 Tip: keep recordings compressed (MP3/M4A), since the file-size limit is 25 MB.
 
+
+
 ## Error handling
 
 No file, unsupported type, empty file, unreadable file, too long, no speech, too short, and failed stages all show a clear message. If refinement fails, the raw transcript is used. If record generation fails, the transcripts are still shown.
+
+
 
 ## Anti-invention safeguards
 
@@ -47,17 +57,19 @@ Prompts forbid guessing; owners/deadlines not found in the transcript are reset 
 
 
 
-\## Known limitations
+# Demo
 
-\- Speech recognition can mishear names and drop punctuation; names are kept unchanged and owners stay "Unspecified" when ownership is unclear.
-
-\- Summary and minutes are model-written and may occasionally phrase a number or ownership slightly differently from the action-items list.
-
-\- Uploads are limited to 25 MB; use compressed formats like MP3 or M4A.
-
-\- If a yellow note says the language-model service reached its token limit, wait the time it shows and press "Retry refinement and record" (no need to re-upload). Avoid running several recordings back to back.
+Demo video: demo\_video.mp4 (in this repository)
 
 
 
+# Known limitations
 
+&#x20;  - Speech recognition can mishear names and drop punctuation; names are kept unchanged and owners stay "Unspecified" when ownership is unclear.
+
+&#x20;  - Summary and minutes are model-written and may occasionally phrase a number or ownership slightly differently from the action-items list.
+
+&#x20;  - Uploads are limited to 25 MB; use compressed formats like MP3 or M4A.
+
+&#x20;  - If a yellow note says the language-model service reached its token limit, wait the time it shows and press "Retry refinement and record" (no need to re-upload). Use a fresh API key and avoid running several recordings back to back.
 
